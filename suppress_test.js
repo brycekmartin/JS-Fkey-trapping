@@ -20,10 +20,9 @@
             }
             else if (e.keyCode == 112){
                 LogMsg('F1 pressed');
-                if (browser == "msie"){
-                    e.keyCode = 0;//preventDefault();
-                    e.returnValue = false;
-                    
+                if (browser == 'msie'){
+                    document.onhelp = function() { return (false); }
+                    window.onhelp = function() { return (false); }
                 }
                 return false;
             }
@@ -37,10 +36,21 @@
             }
             else if (e.keyCode == 114 && SHIFT){
                 LogMsg('F15 pressed');
+                if (browser == 'msie'){
+                    e.keyCode = 0; 
+                    e.preventDefault();
+                    e.returnValue = false;
+                }
                 return false;
             }
             else if (e.keyCode == 114){
                 LogMsg('F3 pressed');
+                if (browser == 'msie'){
+                    e.keyCode = 0;
+                    e.stopPropagation()
+                    e.preventDefault();
+                    e.returnValue = false;
+                }
                 return false;
             }
             else if (e.keyCode == 115 && SHIFT){
