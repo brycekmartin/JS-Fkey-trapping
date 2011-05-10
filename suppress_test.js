@@ -1,7 +1,7 @@
     $(function(){
         //var userAgent = navigator.userAgent
         var browser = jQuery.uaMatch(navigator.userAgent).browser;
-        alert(browser);
+        //alert(browser);
         var SHIFT = false;
         $('input').live('keydown', function (e){
             if (e.keyCode == 16){
@@ -47,9 +47,10 @@
                 LogMsg('F3 pressed');
                 if (browser == 'msie'){
                     e.keyCode = 0;
-                    e.stopPropagation()
-                    e.preventDefault();
+                    //e.stopPropagation()
+                    //e.preventDefault();
                     e.returnValue = false;
+                    e.cancelBubble = true;
                 }
                 return false;
             }
