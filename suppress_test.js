@@ -1,4 +1,7 @@
     $(function(){
+        //var userAgent = navigator.userAgent
+        var browser = jQuery.uaMatch(navigator.userAgent).browser;
+        alert(browser);
         var SHIFT = false;
         $('input').live('keydown', function (e){
             if (e.keyCode == 16){
@@ -7,11 +10,22 @@
             
             if (e.keyCode == 112 && SHIFT){
                 LogMsg('F13 pressed');
+                if (browser == 'msie'){
+                  e.keyCode = 0;//preventDefault();
+                  e.returnValue = false;
+                }
+                
                 return false;
+                
             }
             else if (e.keyCode == 112){
-                  LogMsg('F1 pressed');
-                  return false;
+                LogMsg('F1 pressed');
+                if (browser == "msie"){
+                    e.keyCode = 0;//preventDefault();
+                    e.returnValue = false;
+                    
+                }
+                return false;
             }
             else if (e.keyCode == 113 && SHIFT){
                 LogMsg('F14 pressed');
