@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Suppress Fkeys</title>
+        <script type="text/javascript" src="suppress_test.js" ></script>
+        <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+        <script type="text/javascript">
+            
+        $('input').live('keypress', function (e) {
+            if ( e.keyCode == 9 ){
+                $('<div/>')
+                .append('Fkey F1 pressed.')
+                .appendTo('#output');
+            }
+        });
+    
+            
+            
+        </script>    
+    </head>
+    <body>
+        <div id="output"></div>
+    </body>
+    
+    
+</html>
